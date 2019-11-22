@@ -1,5 +1,8 @@
+package com.example.repository;
+
 
 import java.util.ArrayList;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -14,6 +17,7 @@ import org.springframework.stereotype.Repository;
 
 import com.example.domain.Article;
 import com.example.domain.Comment;
+
 
 
 /**
@@ -36,13 +40,13 @@ public class ArticleRepository {
 	 */
 	private static final ResultSetExtractor<List<Article>> ARTICLE_RESULT_SET_EXTRACTOR = (rs) -> {
 		List<Article> articleList = new LinkedList<Article>();
+		Article article = null;
 		List<Comment> commentList = null;
 		long beforeArticleId = 0;
 		while (rs.next()) {
-			int nowId = rs.getInt("id");
-			if (nowId != beforeArticleId) {
-				Article article = new Article();
-				article.setId(nowId);
+			if (rs.getInt("id") != beforeArticleId) {
+				article = new Article();
+				article.setId(rs.getLong("id"));
 				article.setName(rs.getString("name"));
 				article.setContent(rs.getString("content"));
 				commentList = new ArrayList<Comment>();
@@ -56,7 +60,7 @@ public class ArticleRepository {
 				comment.setContent(rs.getString("com_content"));
 				commentList.add(comment);
 			}
-			beforeArticleId = nowId;
+			beforeArticleId = article.getId();
 		}
 		return articleList;
 	};

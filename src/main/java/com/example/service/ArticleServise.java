@@ -2,11 +2,12 @@ package com.example.service;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import jp.co.runy.bbs.joined.domain.Article;
-import jp.co.runy.bbs.joined.repository.JoinedArticleRepository;
+import com.example.domain.Article;
+import com.example.repository.ArticleRepository;
 
 @Service
 public class ArticleServise {

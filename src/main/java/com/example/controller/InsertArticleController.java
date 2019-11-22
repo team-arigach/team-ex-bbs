@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.example.domain.Article;
+import com.example.form.JoinedArticleForm;
+import com.example.form.JoinedCommentForm;
 import com.example.service.CommentService;
 
 @Controller
@@ -31,8 +33,8 @@ public class InsertArticleController {
 	 * @return 記事フォーム
 	 */
 	@ModelAttribute
-	public ArticleForm setUpArticleForm() {
-		return new ArticleForm();
+	public JoinedArticleForm setUpArticleForm() {
+		return new JoinedArticleForm();
 	}
 
 	/**
@@ -41,8 +43,8 @@ public class InsertArticleController {
 	 * @return コメントフォーム
 	 */
 	@ModelAttribute
-	public CommentForm setUpCommentForm() {
-		return new CommentForm();
+	public JoinedCommentForm setUpCommentForm() {
+		return new JoinedCommentForm();
 	}
 
 	/**

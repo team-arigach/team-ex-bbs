@@ -16,16 +16,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.example.domain.Article;
 import com.example.form.JoinedArticleForm;
 import com.example.form.JoinedCommentForm;
-import com.example.service.CommentService;
+import com.example.service.ArticleServise;
 
 @Controller
 @RequestMapping
 public class InsertArticleController {
 	@Autowired
-	private ArticleService articleService;
-
-	@Autowired
-	private CommentService commentService;
+	private ArticleServise articleService;
 
 	/**
 	 * 記事のフォームを初期化します.
@@ -88,7 +85,7 @@ public class InsertArticleController {
 	 * @return 掲示板画面
 	 */
 	@RequestMapping(value = "/postarticle")
-	public String postarticle(@Validated ArticleForm form, BindingResult result, Model model) {
+	public String postarticle(@Validated JoinedArticleForm form, BindingResult result, Model model) {
 		if (result.hasErrors()) {
 			return form(model);
 		}

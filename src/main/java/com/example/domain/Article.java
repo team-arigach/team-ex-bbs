@@ -19,7 +19,7 @@ public class Article {
 	public String content;
 
 	/** コメント一覧 */
-	public List<JoinedComment> commentList;
+	public List<Comment> commentList;
 
 	public Long getId() {
 		return id;
@@ -45,11 +45,11 @@ public class Article {
 		this.content = content;
 	}
 
-	public List<JoinedComment> getCommentList() {
+	public List<Comment> getCommentList() {
 		return commentList;
 	}
 
-	public void setCommentList(List<JoinedComment> commentList) {
+	public void setCommentList(List<Comment> commentList) {
 		this.commentList = commentList;
 	}
 	

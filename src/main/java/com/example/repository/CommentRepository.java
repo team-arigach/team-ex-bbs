@@ -1,5 +1,5 @@
 package com.example.repository;
 
-public class re {
+public class CommentRepository {
 
 }
